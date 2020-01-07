@@ -1,5 +1,5 @@
-sistema-eps-salud-total
-Sistema de salud que administrará la programación de citas médicas. PHP - Bootstrap - CodeIgniter - GroceryCrud - mySQL - xampp
+sistema de listado de encuesta
+ PHP - Bootstrap - CodeIgniter - GroceryCrud - mySQL - xampp
 
 
 ###################
