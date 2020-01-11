@@ -36,18 +36,19 @@ class Empleados extends CI_Controller
         //$this->crud->set_relation("fechacita","citaspacientes","fechacita");
 
         //Definicion de campos.
-        $this->crud->fields("cedula","nombre");
+        $this->crud->fields("cedula","nombre","dependencia");
 
         //Campos requeridos
-        $this->crud->required_fields("cedula","nombre");
+        $this->crud->required_fields("cedula","nombre","dependencia");
 
         //Redefinir un titulo a la tabla
         $this->crud->set_subject("Empleados");
 
         $this->crud->display_as("cedula","Cedula");
         $this->crud->display_as("nombre","Nombre");
+        $this->crud->display_as("dependencia","Dependencia");
 
-        $this->crud->columns("cedula","nombre");
+        $this->crud->columns("cedula","nombre","dependencia");
         
         //Aplicar el render, que es ejecutar estas variables y esperar los tres componentes para cargar en la vista.
         $tabla = $this->crud->render();

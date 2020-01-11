@@ -45,7 +45,7 @@
         <!-- Nav Item - User Information -->
                 <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><span><b>Hola, </b></span></span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><span style="font-family: calibri; font-size: 150%;"><b>Bienvenido guardián ambiental </b></span></span>
                 <img class="img-profile rounded-circle" src="https://img.icons8.com/ios/50/000000/user-filled.png">
             </a>
             <!-- Dropdown - User Information -->

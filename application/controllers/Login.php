@@ -13,7 +13,7 @@ class Login extends CI_Controller
 
     public function index() {
         //Cargar vista.
-        $data["tituloLogin"] = "Salud total";
+        $data["tituloLogin"] = "Listar Encuesta";
         $this->load->view('index.php', $data);
     }
 /*

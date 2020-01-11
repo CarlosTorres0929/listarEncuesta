@@ -1,3 +1,5 @@
+
+
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -21,7 +23,7 @@ class InformeTrabajo extends CI_Controller
     public function index() {
 
     
-        $data["titulo"] = "listar";
+        $data["titulo"] = "Informe Trabajo";
         $data["descripcion"] = "Plan de movilidad sostenible";
 
         //Tema del crud.
@@ -32,12 +34,10 @@ class InformeTrabajo extends CI_Controller
 
         //Si queremes relacionar dos tablas y que podemos por medio de un select asociar un dato de una
         //de ellas usamos set_relation (campo de la tabla set table, la tabla asociar, que campo mostrar de la tabla asociar)
-        //$this->crud->set_relation("pacienteid","pacientes",'{nombre} {apellido}');
-        //$this->crud->set_relation("medicoid","medicos",'{nombre}');
-        //$this->crud->set_relation("hora","horascitaspacientes", "hora");
+        //$this->crud->set_relation("id","empleados","nombre");
 
         //Definicion de campos.
-        $this->crud->fields("cedula","bus","sistema_metro","carro","moto","carro_compartido","moto_compartida","bicicleta","caminar","vehiculo_electrico","diasincarro","diasinmoto","otro","fecha_registro");
+        $this->crud->fields("cedula","bus","sistema_metro","carro","moto","carro_compartido","moto_compartida","bicicleta","caminar","vehiculo_electrico","diasincarro","diasinmoto","otro","fecha_registro","total");
 
         //Campos requeridos
         //$this->crud->required_fields("cedula","medicoid","fechacita","hora");
@@ -59,7 +59,7 @@ class InformeTrabajo extends CI_Controller
         $this->crud->display_as("diasinmoto","Dia sin moto");
         $this->crud->display_as("otro","Otro");
         $this->crud->display_as("fecha_registro","Fecha de registro");
-
+        $this->crud->display_as("total","Total");
 
         $this->crud->unset_add();
         $this->crud->unset_edit();
@@ -68,7 +68,7 @@ class InformeTrabajo extends CI_Controller
         $this->crud->unset_delete();
         $this->crud->unset_back_to_list(); //quitar botones adicionales
 
-        $this->crud->columns("cedula","bus","sistema_metro","carro","moto","carro_compartido","moto_compartida","bicicleta","caminar","vehiculo_electrico","diasincarro","diasinmoto","otro","fecha_registro");
+        $this->crud->columns("cedula","bus","sistema_metro","carro","moto","carro_compartido","moto_compartida","bicicleta","caminar","vehiculo_electrico","diasincarro","diasinmoto","otro","fecha_registro","total");
         
         //Aplicar el render, que es ejecutar estas variables y esperar los tres componentes para cargar en la vista.
         $tabla = $this->crud->render();
@@ -79,6 +79,7 @@ class InformeTrabajo extends CI_Controller
         $data["css_files"] = $tabla->css_files; 
 
         $this->load->view('crud', $data);
+
     }
 }
-
+?>

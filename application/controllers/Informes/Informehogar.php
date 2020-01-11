@@ -21,7 +21,7 @@ class Informehogar extends CI_Controller
     public function index() {
   
 
-        $data["titulo"] = "Informehogar";
+        $data["titulo"] = "Informe hogar";
         $data["descripcion"] = "Como te movilizaste ayer para ir a tu hogar";
 
         //Tema del crud.
@@ -31,7 +31,7 @@ class Informehogar extends CI_Controller
         $this->crud->set_table('transporte_hogar');
 
         //Definicion de campos.
-        $this->crud->fields("cedula","bus","sistema_metro","carro","moto","carro_compartido","moto_compartida","bicicleta","caminar","vehiculo_electrico","diasincarro","diasinmoto","otro","fecha_registro");
+        $this->crud->fields("cedula","bus","sistema_metro","carro","moto","carro_compartido","moto_compartida","bicicleta","caminar","vehiculo_electrico","diasincarro","diasinmoto","otro","fecha_registro","totalh");
 
         //Campos requeridos
         //$this->crud->required_fields("pacienteid","nombre","apellido","telefono","email","direccion","ciudad");
@@ -53,7 +53,7 @@ class Informehogar extends CI_Controller
         $this->crud->display_as("diasinmoto","Dia sin moto");
         $this->crud->display_as("otro","Otro");
         $this->crud->display_as("fecha_registro","Fecha de registro");
-
+        $this->crud->display_as("totalh","Total");
 
         $this->crud->unset_add();
         $this->crud->unset_edit();
@@ -62,7 +62,7 @@ class Informehogar extends CI_Controller
         $this->crud->unset_delete();
         $this->crud->unset_back_to_list(); //quitar botones adicionales
 
-        $this->crud->columns("cedula","bus","sistema_metro","carro","moto","carro_compartido","moto_compartida","bicicleta","caminar","vehiculo_electrico","diasincarro","diasinmoto","otro","fecha_registro");
+        $this->crud->columns("cedula","bus","sistema_metro","carro","moto","carro_compartido","moto_compartida","bicicleta","caminar","vehiculo_electrico","diasincarro","diasinmoto","otro","fecha_registro","totalh");
         
         //Aplicar el render, que es ejecutar estas variables y esperar los tres componentes para cargar en la vista.
         $tabla = $this->crud->render();
