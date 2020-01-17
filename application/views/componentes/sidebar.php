@@ -4,7 +4,7 @@
     <!-- Sidebar - Brand -->
     <br>
 <br>
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="http://localhost/listarEncuesta/index.php">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="http://172.17.5.35/listarEncuesta">
         <div class="sidebar-brand-icon rotate-n-15"></div>
         <div class="sidebar-brand-text mx-3"><img class="img-fluid" src="<?php echo base_url();?>/assets/img/moneda.png" alt=""></div>
     </a>
@@ -14,7 +14,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="http://localhost/listarEncuesta/index.php">
+        <a class="nav-link" href="http://172.17.5.35/listarEncuesta">
             <i class="fas fa-fw fa-home "></i>
             <span style="font-family: calibri;">Plan movilidad sostenible</span>
         </a>
@@ -59,7 +59,7 @@
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-                <a style="font-family: calibri;" class="collapse-item" href="http://localhost/EncuestaAmbiental/index.php">Ir a la encuesta</a>
+                <a style="font-family: calibri;" class="collapse-item" href="http://172.17.5.35/EncuestaAmbiental/index.php">Ir a la encuesta</a>
         </div>
       </li>
 

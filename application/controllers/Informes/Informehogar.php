@@ -35,7 +35,7 @@ class Informehogar extends CI_Controller
 
         //Campos requeridos
         //$this->crud->required_fields("pacienteid","nombre","apellido","telefono","email","direccion","ciudad");
-
+        
         //Redefinir un titulo a la tabla
         $this->crud->set_subject("Trabajo");
 
