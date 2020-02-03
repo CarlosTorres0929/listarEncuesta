@@ -11,18 +11,21 @@ class Informehogar extends CI_Controller
         $this->load->library('grocery_CRUD');
 
         $this->load->model('hogar_model');
-
         //instanciar la libreria
         $this->crud = new grocery_CRUD();
 
        
     }
 
+
     public function index() {
   
 
         $data["titulo"] = "Informe hogar";
         $data["descripcion"] = "Como te movilizaste ayer para ir a tu hogar";
+        $listar = $this->hogar_model->listar();
+        $data['listado']  = $listar;
+        $data['titulo']   = "Listado de pacientes";
 
         //Tema del crud.
         $this->crud->set_theme('flexigrid');
@@ -30,8 +33,11 @@ class Informehogar extends CI_Controller
         //Cargar la tabla
         $this->crud->set_table('transporte_hogar');
 
+
+       // $this->crud->set_relation("nombre","empleados","nombre");
+
         //Definicion de campos.
-        $this->crud->fields("cedula","bus","sistema_metro","carro","moto","carro_compartido","moto_compartida","bicicleta","caminar","vehiculo_electrico","diasincarro","diasinmoto","otro","fecha_registro","totalh");
+        $this->crud->fields("cedula","nombre","dependencia","bus","sistema_metro","carro","moto","carro_compartido","moto_compartida","bicicleta","caminar","vehiculo_electrico","otro","fecha_registro","totalh");
 
         //Campos requeridos
         //$this->crud->required_fields("pacienteid","nombre","apellido","telefono","email","direccion","ciudad");
@@ -40,6 +46,8 @@ class Informehogar extends CI_Controller
         $this->crud->set_subject("Trabajo");
 
         $this->crud->display_as("cedula","Cedula");
+        $this->crud->display_as("nombre","Nombre");
+        $this->crud->display_as("dependencia","Dependencia");
         $this->crud->display_as("bus","Bus");
         $this->crud->display_as("sistema_metro","Metro");
         $this->crud->display_as("carro","Carro");
@@ -49,8 +57,6 @@ class Informehogar extends CI_Controller
         $this->crud->display_as("bicicleta","Bicicleta");
         $this->crud->display_as("caminar","Caminar");
         $this->crud->display_as("vehiculo_electrico","Vehiculo electrico");
-        $this->crud->display_as("diasincarro","Dia sin carro");
-        $this->crud->display_as("diasinmoto","Dia sin moto");
         $this->crud->display_as("otro","Otro");
         $this->crud->display_as("fecha_registro","Fecha de registro");
         $this->crud->display_as("totalh","Total");
@@ -62,17 +68,28 @@ class Informehogar extends CI_Controller
         $this->crud->unset_delete();
         $this->crud->unset_back_to_list(); //quitar botones adicionales
 
-        $this->crud->columns("cedula","bus","sistema_metro","carro","moto","carro_compartido","moto_compartida","bicicleta","caminar","vehiculo_electrico","diasincarro","diasinmoto","otro","fecha_registro","totalh");
+        $this->crud->columns("cedula","nombre","dependencia","bus","sistema_metro","carro","moto","carro_compartido","moto_compartida","bicicleta","caminar","vehiculo_electrico","otro","fecha_registro","totalh");
         
         //Aplicar el render, que es ejecutar estas variables y esperar los tres componentes para cargar en la vista.
-        $tabla = $this->crud->render();
         
+
+        
+        $tabla = $this->crud->render();
+       
         //Los tres componentes se llaman output, js_files y css_files
         $data["contenido"] = $tabla->output;
         $data["js_files"]  = $tabla->js_files;
         $data["css_files"] = $tabla->css_files;
 
+ 
+        $this->load->view('transporteHogar', $data);
+    }
 
-        $this->load->view('crud', $data);
+        public function listado() {
+        $data = $this->hogar_model->listar();
+        $vector["listado"] = $data;
+        $vector["titulo"]  = "Listado de pacientes";
+
+        $this->load->view('transporteHog', $vector);
     }
 }
